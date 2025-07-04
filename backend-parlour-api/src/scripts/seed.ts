@@ -1,8 +1,11 @@
 import mongoose from "mongoose"
 import User from "../models/User"
 import Employee from "../models/Employee"
+import dotenv from "dotenv"
+dotenv.config()
 
-const mongoUri = process.env.MONGODB_URI;
+const mongoUri = process.env.MONGODB_URI
+if (!mongoUri) throw new Error("MONGODB_URI not set in environment")
 
 const seedData = async () => {
   try {

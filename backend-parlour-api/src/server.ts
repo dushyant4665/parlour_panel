@@ -23,17 +23,19 @@ const app = express()
 const server = createServer(app)
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || "http://localhost:3000",
-    methods: ["GET", "POST"],
+    origin: 'https://super-memory-g449pxp6jqp529rqp-3000.app.github.dev/login',
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true,
   },
 })
 
 // Middleware
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:3000",
-  }),
-)
+app.use(cors({
+  origin: '*',
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+}))
 app.use(express.json())
 
 // Connect to MongoDB

@@ -1,12 +1,14 @@
 import mongoose from "mongoose"
-import dotenv from "dotenv"
-dotenv.config()
+
 const connectDB = async () => {
   try {
-const mongoUri = process.env.MONGODB_URI;
-    const conn = await mongoose.connect(mongoUri)
-    console.log(mongoUri)
+    const mongoUri = process.env.MONGODB_URI;
+    console.log('MONGODB_URI from env:', mongoUri);
+    if (!mongoUri) throw new Error("MONGODB_URI not set in environment");
+    await mongoose.connect(mongoUri);
+    console.log('✅ MongoDB Connected Successfully!');
   } catch (error) {
+    console.error('❌ MongoDB connection error:', error);
     process.exit(1)
   }
 }
