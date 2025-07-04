@@ -23,7 +23,7 @@ const app = express()
 const server = createServer(app)
 const io = new Server(server, {
   cors: {
-    origin: 'https://super-memory-g449pxp6jqp529rqp-3000.app.github.dev/login',
+    origin: 'https://parlour-panel.vercel.app/',
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   },
