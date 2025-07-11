@@ -59,7 +59,7 @@ parlour_panel/
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/dushyant4665/parlour_panel
 cd parlour_panel
 ```
 
